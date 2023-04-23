@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  learn-mysql-bookstore-go-db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: sariawan
+      MYSQL_USER: rafliputraa
+      MYSQL_PASSWORD: sariawan
+      MYSQL_DATABASE: bookstore
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - learn-mysql-bookstore-go
+
+networks:
+  learn-mysql-bookstore-go:
+    driver: bridge
